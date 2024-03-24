@@ -1,0 +1,100 @@
+\documentclass{beamer}
+
+\usepackage[utf8]{inputenc} %Use UTF8 encoding for accented characters
+\usepackage[italian]{babel} %Document written in italian, change to whatever and verify if the specific language package is installed (apt install texlive-lang-<language> in Ubuntu 22.04)
+\usepackage[T1]{fontenc}    %Use a 256 gliphs font for displaying correctly symbols in PDF output file
+\usepackage{amsmath} %Tools for writing math expression
+\usepackage{graphicx}   %For includegraphics command
+\usepackage{float}  %For correct placement of figures ([H] option)
+\usepackage{caption,subcaption}    %Simply captions and subcaptions for figures
+\usepackage{circuitikz} %Package for drawing electrical circuits
+\usepackage[separate-uncertainty=true]{siunitx} %For formatting measures correctly as SI standard
+
+\graphicspath{ {./img/} }
+
+\setbeamertemplate{footline}[frame number]
+
+
+\title{Low Noise Amplifier - Design Review 1}
+\author{Nicolas Bigiotti - Alberto Moretti}
+\institute{Corso di Laurea magistrale in Fisica - Università degli Studi di Milano-Bicocca}
+\date{26 Marzo 2024}
+\logo{\includegraphics[scale=0.05]{img/unimib.jpg}}
+
+\begin{document}
+
+
+\frame{\titlepage}
+
+
+\begin{frame}
+    \frametitle{Contenuti}
+    
+    \begin{itemize}
+        \item<1->\textbf{System Level Design}
+            \begin{itemize}
+                \item<2-> Stabilità
+                \item<3-> Risposta in frequeza
+            \end{itemize}
+        
+        \item<4-> \textbf{Progettazione OPAMP}
+            \begin{itemize}
+                \item<5-> Punto Operativo
+                \item<6-> Guadagno
+                \item<7-> Stabilità
+                \item<8-> Rumore  
+            \end{itemize} 
+        
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Descrizione Progetto}
+    \begin{columns}
+    
+        
+        \column{0.5\textwidth} 
+            \textbf{Specifiche LNA}
+            \begin{itemize}
+                \item DC Gain 10 dB
+                \item HP Frequency $\SI{500}{\kilo\hertz}$
+                \item LP Frequency $\SI{25}{\mega\hertz}$
+                \item Phase Margin $\SI{75}{\degree}$
+                \item Noise PSD $\SI{10}{\nano\volt}$
+                \item THD -40 dB
+            \end{itemize}
+        \pause
+        \column{0.5\textwidth} 
+            \textbf{Specifiche OPAMP}
+            \begin{itemize}
+                \item DC Gain 40 dB
+                \item UGBW $\SI{75}{\mega\hertz}$
+                \item Phase Margin $\SI{80}{\degree}$
+                \item Noise PSD $\SI{10}{\nano\volt}$
+            \end{itemize}
+
+        
+
+        
+    \end{columns}
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Contenuti}
+    
+    \begin{equation}
+        A(s) = \dfrac{A_0}{\left(1+s\tau_A\right)\left(1+s\tau_B\right)}
+    \end{equation}
+
+    \begin{equation}
+        \tau_A = \dfrac{UGBW}{A_0}
+    \end{equation}
+
+\end{frame}
+
+
+\end{document}
+

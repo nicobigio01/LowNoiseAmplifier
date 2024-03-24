@@ -1,0 +1,23 @@
+#Ignore latex backup and build files
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.synctex.gz
+*.pdf
+*.blg
+*.bbl
+*.toc
+*.nav
+*.out
+*.snm
+
+#Ignore misc directory
+misc
+
+#Ignore notes
+*.xopp
+
+#ignore MATLAB backup files
+*.asv
+
